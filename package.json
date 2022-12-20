@@ -1,7 +1,14 @@
 {
-  "name": "whatsapp2",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "xxjamisxx <gui_haunter@hotmail.com>",
-  "license": "MIT"
+    "name": "whatsapp2",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "nodemon": "^2.0.20"
+    }
 }
