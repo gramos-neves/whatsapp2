@@ -107,9 +107,19 @@ app.post("/webhook", async  (req,res) => {
                         //console.log('location')
                         break;
                     case 'interactive':
-                       let button_reply =  body_param.entry[0].changes[0].value.messages?.[0].interactive.type
-                        
-                         console.log(button_reply)
+                       let button_reply = body_param.entry[0].changes[0].value.messages?.[0].interactive.type
+                       
+                        if(button_reply == 'button_reply'){
+                            let button_reply_id = body_param.entry[0].changes[0].value.messages?.[0].interactive.button_reply.id
+                            console.log(utton_reply_id)
+                            if(button_reply_id == 'Contato'){
+                                console.log('Contato')  
+                            }else if(button_reply_id == 'Location_icesp'){
+                                console.log("Location_icesp")
+                            }
+                             
+                        } 
+                      
 
                        //await  acaonaopermitida(from,phon_no_id)  
                            //console.log('location')
@@ -182,6 +192,15 @@ async function acaonaopermitidaNew(from, phon_no_id,wam_id){
     })
 
 }
+
+
+
+
+
+
+
+
+
 
 app.get("/listen", (req, res) => {
     let agendasNew = agendas;
