@@ -105,7 +105,11 @@ app.post("/webhook", async  (req,res) => {
                     case 'location':
                       await  acaonaopermitida(from,phon_no_id)  
                         //console.log('location')
-                        break;   
+                        break;
+                    case 'button_reply':
+                       //await  acaonaopermitida(from,phon_no_id)  
+                           //console.log('location')
+                         break;    
                     default:  
                         console.log("default")
                 }   
