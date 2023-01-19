@@ -112,17 +112,12 @@ app.post("/webhook", async  (req,res) => {
                         if(button_reply == 'button_reply'){
                             let button_reply_id = body_param.entry[0].changes[0].value.messages?.[0].interactive.button_reply.id
                             if(button_reply_id == 'Contato'){
-                                console.log('Contato')  
+                                acaoContato(from,phon_no_id) 
                             }else if(button_reply_id == 'Location_icesp'){
-                                acaoLocation(from,phon_no_id)
-                                console.log("Location_icesp")
+                               acaoLocation(from,phon_no_id) 
                             }
-                             
                         } 
                       
-
-                           //await  acaonaopermitida(from,phon_no_id)  
-                           //console.log('location')
                          break;    
                     default:  
                         console.log("default")
@@ -229,10 +224,45 @@ async function acaoContato(from, phon_no_id){
             messaging_product:"whatsapp",
             recipient_type: "individual",
             to:from,
-            type: "text",
-            text:{
-                body: 'Ação não permitida!'
-            }
+            type: "contacts",
+            contacts: [{
+                addresses: [{
+                    street: "Av. Dr. Arnaldo, 251 - Cerqueira César",
+                    city: "São Paulo",
+                    state: "SP",
+                    zip: "01246-000",
+                    country: "Brasil",
+                    country_code: "55",
+                    type: "HOME"
+                  }],
+                birthday: "2023-02-02",
+                emails: [{
+                    email: "ICESP@ICESP.COM.BR",
+                    type: "WORK"
+                  }],
+                name: {
+                  formatted_name: "ICESP",
+                  first_name: "Instituto do Câncer do Estado de São Paulo",
+                  last_name: "",
+                  middle_name: "",
+                  suffix: "",
+                  prefix: ""
+                },
+                org: {
+                  company: "ICESP",
+                  department: "MEDICINA",
+                  title: ""
+                },
+                phones: [{
+                    phone: "1138932000",
+                    type: "HOME"
+                  }],
+                urls: [{
+                    url: "https://www.icesp.org.br",
+                    type: "WORK"
+                  }]
+              }] 
+
         },
         headers: {
             "Content-Type":"application/json",
