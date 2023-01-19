@@ -63,7 +63,7 @@ app.post("/webhook", async  (req,res) => {
                         console.log(typeof(msg_body))
                         console.log(msg_body !== '/help') 
 
-                        if((msg_body === '/help')){
+                        if(JSON.stringify(msg_body) == '/help'){
                             console.log("help")
                         }else{
                           await acaonaopermitidaNew(from,phon_no_id,text_id);
