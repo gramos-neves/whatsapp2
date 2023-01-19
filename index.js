@@ -62,7 +62,7 @@ app.post("/webhook", async  (req,res) => {
                         
             
                         if(msg_body == '/ajuda'){
-                            console.log("ajuda")
+                            await acaoAjuda(from,phon_no_id)
                         }else{
                           await acaonaopermitidaNew(from,phon_no_id,text_id);
                         }
@@ -143,6 +143,25 @@ app.post("/webhook", async  (req,res) => {
     }
 })
 
+
+
+app.get("/listen", (req, res) => {
+    let agendasNew = agendas;
+    agendas = [] 
+
+   res.status(200).send(JSON.stringify(agendasNew));
+  });
+
+  app.get("/status", (req, res) => {
+    let statusNew = arrStatus;
+    arrStatus = [] 
+    
+   // console.log(statusNew)
+   //res.status(200).send(JSON.stringify(statusNew));
+   res.status(200).send(statusNew);
+  });
+
+
 async function acaonaopermitida(from, phon_no_id){
     await axios({
         method: "POST",
@@ -187,7 +206,6 @@ async function acaonaopermitidaNew(from, phon_no_id,wam_id){
     })
 
 }
-
 
 
 async function acaoLocation(from, phon_no_id){
@@ -273,21 +291,49 @@ async function acaoContato(from, phon_no_id){
 
 
 
+async function acaoAjuda(from, phon_no_id){
+    await axios({
+        method: "POST",
+        url:"https://graph.facebook.com/v15.0/"+phon_no_id+"/messages",
+        data:{
+            messaging_product:"whatsapp",
+            recipient_type: "individual",
+            to:from,
+            type: "interactive",
+            interactive: {
+                type: "button",
+                body: {
+                  text: "INFORMAÇÃO ICESP"
+                },
+                action: {
+                  buttons: [
+                    {
+                      type: "reply",
+                      reply: {
+                        id: "Location_icesp",
+                        title: "Localização ICEP"
+                      }
+                    },
+                    {
+                      type: "reply",
+                      reply: {
+                        id: "Contato",
+                        title: "Contato"
+                      }
+                    }
+                  ]
+                }
+              } 
+            
+        },
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization":"Bearer "+token
+        }
+    })
+
+}
 
 
 
-app.get("/listen", (req, res) => {
-    let agendasNew = agendas;
-    agendas = [] 
 
-   res.status(200).send(JSON.stringify(agendasNew));
-  });
-
-  app.get("/status", (req, res) => {
-    let statusNew = arrStatus;
-    arrStatus = [] 
-    
-   // console.log(statusNew)
-   //res.status(200).send(JSON.stringify(statusNew));
-   res.status(200).send(statusNew);
-  });
