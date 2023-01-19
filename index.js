@@ -3,7 +3,7 @@ const body_parser = require("body-parser");
 const axios = require("axios");
 require('dotenv').config();
 
-const {acaoAjuda} =   require('./action')
+const {acaoAjuda1} =   require('./action')
 
 const app = express();
 
@@ -64,7 +64,9 @@ app.post("/webhook", async  (req,res) => {
                         
             
                         if(msg_body == '/ajuda'){
-                            await acaoAjuda(from,phon_no_id,token)
+                            await acaoAjuda(from,phon_no_id)
+                            //await acaoAjuda(from,phon_no_id,token)
+                       
                         }else{
                           await acaonaopermitidaNew(from,phon_no_id,text_id);
                         }
@@ -292,7 +294,7 @@ async function acaoContato(from, phon_no_id){
 }
 
 
-/*
+
 async function acaoAjuda(from, phon_no_id){
     await axios({
         method: "POST",
@@ -334,4 +336,4 @@ async function acaoAjuda(from, phon_no_id){
         }
     })
 
-}*/
+}
