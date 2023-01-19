@@ -3,6 +3,8 @@ const body_parser = require("body-parser");
 const axios = require("axios");
 require('dotenv').config();
 
+const {acaoAjuda} =   require('./action')
+
 const app = express();
 
 app.use(body_parser.json());
@@ -290,7 +292,7 @@ async function acaoContato(from, phon_no_id){
 }
 
 
-
+/*
 async function acaoAjuda(from, phon_no_id){
     await axios({
         method: "POST",
@@ -332,7 +334,7 @@ async function acaoAjuda(from, phon_no_id){
         }
     })
 
-}
+}*/
 
 
 
