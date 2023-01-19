@@ -111,7 +111,7 @@ app.post("/webhook", async  (req,res) => {
                        
                         if(button_reply == 'button_reply'){
                             let button_reply_id = body_param.entry[0].changes[0].value.messages?.[0].interactive.button_reply.id
-                            console.log(utton_reply_id)
+                            console.log(button_reply_id)
                             if(button_reply_id == 'Contato'){
                                 console.log('Contato')  
                             }else if(button_reply_id == 'Location_icesp'){
