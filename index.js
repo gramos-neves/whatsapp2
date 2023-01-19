@@ -59,6 +59,7 @@ app.post("/webhook", async  (req,res) => {
                         let msg_body = req.body.entry[0].changes[0].value.messages?.[0].text;
                         let text_id = body_param.entry[0].changes[0].value.messages?.[0].id;
                           
+                        
                         console.log(msg_body)
                         if(msg_body == "/help"){
                             console.log("help")
