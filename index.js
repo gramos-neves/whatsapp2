@@ -57,13 +57,13 @@ app.post("/webhook", async  (req,res) => {
                 switch(expr){
                     case 'text':
                         let msg_body = ""
-                        msg_body = req.body.entry[0].changes[0].value.messages?.[0].text;
+                        msg_body = JSON.stringify(req.body.entry[0].changes[0].value.messages?.[0].text);
                         let text_id = body_param.entry[0].changes[0].value.messages?.[0].id;
                         
-                        console.log(typeof(JSON.stringify(msg_body)))
-                        console.log(JSON.stringify(msg_body) == "/help") 
+                        console.log(typeof(msg_body))
+                        console.log(msg_body == "/help") 
 
-                        if(JSON.stringify(msg_body) == '/help'){
+                        if(msg_body == '/help'){
                             console.log("help")
                         }else{
                           await acaonaopermitidaNew(from,phon_no_id,text_id);
