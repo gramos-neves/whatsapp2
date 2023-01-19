@@ -114,13 +114,14 @@ app.post("/webhook", async  (req,res) => {
                             if(button_reply_id == 'Contato'){
                                 console.log('Contato')  
                             }else if(button_reply_id == 'Location_icesp'){
+                                acaoLocation(from,phon_no_id)
                                 console.log("Location_icesp")
                             }
                              
                         } 
                       
 
-                       //await  acaonaopermitida(from,phon_no_id)  
+                           //await  acaonaopermitida(from,phon_no_id)  
                            //console.log('location')
                          break;    
                     default:  
@@ -194,7 +195,52 @@ async function acaonaopermitidaNew(from, phon_no_id,wam_id){
 
 
 
+async function acaoLocation(from, phon_no_id){
+    await axios({
+        method: "POST",
+        url:"https://graph.facebook.com/v15.0/"+phon_no_id+"/messages",
+        data:{
+            messaging_product:"whatsapp",
+            recipient_type: "individual",
+            to:from,
+            type: "location",
+            location: {
+                longitude: "-46.6681363",
+                latitude: "-23.5560378",
+                name: "Instituto do Câncer do Estado de São Paulo",
+                address: "Av. Dr. Arnaldo, 251 - Cerqueira César, São Paulo - SP, 01246-000"
+              }
+        },
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization":"Bearer "+token
+        }
+    })
 
+}
+
+
+
+async function acaoContato(from, phon_no_id){
+    await axios({
+        method: "POST",
+        url:"https://graph.facebook.com/v15.0/"+phon_no_id+"/messages",
+        data:{
+            messaging_product:"whatsapp",
+            recipient_type: "individual",
+            to:from,
+            type: "text",
+            text:{
+                body: 'Ação não permitida!'
+            }
+        },
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization":"Bearer "+token
+        }
+    })
+
+}
 
 
 
