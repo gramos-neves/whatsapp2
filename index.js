@@ -56,9 +56,9 @@ app.post("/webhook", async  (req,res) => {
 
                 switch(expr){
                     case 'text':
-                        //let msg_body = req.body.entry[0].changes[0].value.messages?.[0].text;
+                        let msg_body = req.body.entry[0].changes[0].value.messages?.[0].text;
                         let text_id = body_param.entry[0].changes[0].value.messages?.[0].id;
-                        await acaonaopermitidaNew(from,phon_no_id,text_id)  
+                        await acaonaopermitidaNew(from,phon_no_id,text_id);
                         break;
                     case 'button':
                         let button = body_param.entry[0].changes[0].value.messages?.[0].button;
