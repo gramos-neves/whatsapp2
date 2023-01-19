@@ -60,7 +60,7 @@ app.post("/webhook", async  (req,res) => {
                         let text_id = body_param.entry[0].changes[0].value.messages?.[0].id;
                         
                         console.log( typeof(msg_body))
-                        console.log((msg_body == '/help')) 
+                        console.log((msg_body !== '/help')) 
 
                         if(msg_body == '/help'){
                             console.log("help")
