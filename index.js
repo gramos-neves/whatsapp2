@@ -112,9 +112,9 @@ app.post("/webhook", async  (req,res) => {
                         if(button_reply == 'button_reply'){
                             let button_reply_id = body_param.entry[0].changes[0].value.messages?.[0].interactive.button_reply.id
                             if(button_reply_id == 'Contato'){
-                                acaoContato(from,phon_no_id) 
+                             await  acaoContato(from,phon_no_id) 
                             }else if(button_reply_id == 'Location_icesp'){
-                               acaoLocation(from,phon_no_id) 
+                              await  acaoLocation(from,phon_no_id) 
                             }
                         } 
                       
@@ -213,7 +213,6 @@ async function acaoLocation(from, phon_no_id){
     })
 
 }
-
 
 
 async function acaoContato(from, phon_no_id){
