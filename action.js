@@ -1,5 +1,8 @@
 const axios = require("axios");
 
+
+const token=process.env.TOKEN
+
 async function acaonaopermitida(from, phon_no_id){
     await axios({
         method: "POST",
