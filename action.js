@@ -172,4 +172,4 @@ async function acaoAjuda(from, phon_no_id){
 
 }
 
-export {acaoAjuda,acaoContato,acaoLocation,acaonaopermitida,acaonaopermitidaNew}
+module.exports = {acaoAjuda,acaoContato,acaoLocation,acaonaopermitida,acaonaopermitidaNew}
