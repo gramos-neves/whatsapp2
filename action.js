@@ -133,7 +133,9 @@ async function acaoContato(from, phon_no_id){
 
 
 
-async function acaoAjuda(from, phon_no_id,token){
+async function acaoAjuda1(from, phon_no_id,token){
+    console.log(token)
+    /*
     await axios({
         method: "POST",
         url:"https://graph.facebook.com/v15.0/"+phon_no_id+"/messages",
@@ -172,8 +174,8 @@ async function acaoAjuda(from, phon_no_id,token){
             "Content-Type":"application/json",
             "Authorization":"Bearer "+token
         }
-    })
+    })*/
 
 }
 
-module.exports = {acaoAjuda,acaoContato,acaoLocation,acaonaopermitida,acaonaopermitidaNew}
+module.exports = {acaoAjuda1,acaoContato,acaoLocation,acaonaopermitida,acaonaopermitidaNew}
