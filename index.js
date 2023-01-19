@@ -56,8 +56,8 @@ app.post("/webhook", async  (req,res) => {
 
                 switch(expr){
                     case 'text':
-                        let msg_body = ""
-                        msg_body = req.body.entry[0].changes[0].value.messages?.[0].text.body;
+                        
+                        let msg_body = req.body.entry[0].changes[0].value.messages?.[0].text.body;
                         let text_id = body_param.entry[0].changes[0].value.messages?.[0].id;
                         
             
@@ -107,6 +107,10 @@ app.post("/webhook", async  (req,res) => {
                         //console.log('location')
                         break;
                     case 'interactive':
+                       let button_reply =  body_param.entry[0].changes[0].value.messages?.[0].interactive.type
+                        
+                         console.log(button_reply)
+
                        //await  acaonaopermitida(from,phon_no_id)  
                            //console.log('location')
                          break;    
