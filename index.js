@@ -106,7 +106,7 @@ app.post("/webhook", async  (req,res) => {
                       await  acaonaopermitida(from,phon_no_id)  
                         //console.log('location')
                         break;
-                    case 'button_reply':
+                    case 'interactive':
                        //await  acaonaopermitida(from,phon_no_id)  
                            //console.log('location')
                          break;    
