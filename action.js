@@ -133,7 +133,7 @@ async function acaoContato(from, phon_no_id){
 
 
 
-async function acaoAjuda1(from, phon_no_id,token){
+async function acaoAjuda(from, phon_no_id,token){
     //console.log(token)
     
     await axios({
@@ -178,4 +178,4 @@ async function acaoAjuda1(from, phon_no_id,token){
 
 }
 
-module.exports = {acaoAjuda1,acaoContato,acaoLocation,acaonaopermitida,acaonaopermitidaNew}
+module.exports = {acaoAjuda,acaoContato,acaoLocation,acaonaopermitida,acaonaopermitidaNew}

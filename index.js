@@ -3,7 +3,7 @@ const body_parser = require("body-parser");
 const axios = require("axios");
 require('dotenv').config();
 
-const {acaoAjuda1} =   require('./action')
+const {acaoAjuda, acaoLocation, acaoContato} =   require('./action')
 
 const app = express();
 
@@ -65,7 +65,7 @@ app.post("/webhook", async  (req,res) => {
             
                         if(msg_body == '/ajuda'){
                           //  await acaoAjuda(from,phon_no_id)
-                            await acaoAjuda1(from,phon_no_id,token)
+                            await acaoAjuda(from,phon_no_id,token)
                             //await acaoAjuda(from,phon_no_id,token)
                        
                         }else{
@@ -117,9 +117,9 @@ app.post("/webhook", async  (req,res) => {
                         if(button_reply == 'button_reply'){
                             let button_reply_id = body_param.entry[0].changes[0].value.messages?.[0].interactive.button_reply.id
                             if(button_reply_id == 'Contato'){
-                             await  acaoContato(from,phon_no_id) 
+                             await  acaoContato(from,phon_no_id,token) 
                             }else if(button_reply_id == 'Location_icesp'){
-                              await  acaoLocation(from,phon_no_id) 
+                              await  acaoLocation(from,phon_no_id,token) 
                             }
                         } 
                       
@@ -212,7 +212,7 @@ async function acaonaopermitidaNew(from, phon_no_id,wam_id){
 
 }
 
-
+/*
 async function acaoLocation(from, phon_no_id){
     await axios({
         method: "POST",
@@ -235,9 +235,9 @@ async function acaoLocation(from, phon_no_id){
         }
     })
 
-}
+}*/
 
-
+/*
 async function acaoContato(from, phon_no_id){
     await axios({
         method: "POST",
@@ -292,10 +292,10 @@ async function acaoContato(from, phon_no_id){
         }
     })
 
-}
+}*/
 
 
-
+/*
 async function acaoAjuda(from, phon_no_id){
     await axios({
         method: "POST",
@@ -337,4 +337,4 @@ async function acaoAjuda(from, phon_no_id){
         }
     })
 
-}
+}*/
