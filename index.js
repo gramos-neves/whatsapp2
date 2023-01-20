@@ -3,7 +3,7 @@ const body_parser = require("body-parser");
 const axios = require("axios");
 require('dotenv').config();
 
-const {acaoAjuda, acaoLocation, acaoContato, acaonaopermitidaNew} =   require('./action')
+const {acaoAjuda, acaoLocation, acaoContato, acaonaopermitidaNew, acaonaopermitida} =   require('./action')
 
 const app = express();
 
@@ -92,23 +92,23 @@ app.post("/webhook", async  (req,res) => {
                         //console.log('sticker')
                         break;
                     case 'image':
-                       await acaonaopermitida(from,phon_no_id)
+                       await acaonaopermitida(from,phon_no_id,token)
                         //console.log('image')
                         break;   
                     case 'document':
-                       await acaonaopermitida(from,phon_no_id)  
+                       await acaonaopermitida(from,phon_no_id,token)  
                         //console.log('document')
                         break;
                     case 'video':
-                      await  acaonaopermitida(from,phon_no_id)  
+                      await  acaonaopermitida(from,phon_no_id,token)  
                         //console.log('video')
                         break;
                     case 'audio':
-                      await  acaonaopermitida(from,phon_no_id)  
+                      await  acaonaopermitida(from,phon_no_id,token)  
                         //console.log('audio')
                         break;
                     case 'location':
-                      await  acaonaopermitida(from,phon_no_id)  
+                      await  acaonaopermitida(from,phon_no_id,token)  
                         //console.log('location')
                         break;
                     case 'interactive':
@@ -166,7 +166,7 @@ app.get("/listen", (req, res) => {
    res.status(200).send(statusNew);
   });
 
-
+/*
 async function acaonaopermitida(from, phon_no_id){
     await axios({
         method: "POST",
@@ -186,7 +186,7 @@ async function acaonaopermitida(from, phon_no_id){
         }
     })
 
-}
+}*/
 
 /*
 async function acaonaopermitidaNew(from, phon_no_id,wam_id){
