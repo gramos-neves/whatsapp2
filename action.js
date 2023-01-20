@@ -4,7 +4,7 @@ const axios = require("axios");
 
 //const token=process.env.TOKEN
 
-async function acaonaopermitida(from, phon_no_id){
+async function acaonaopermitida(from, phon_no_id,token){
     await axios({
         method: "POST",
         url:"https://graph.facebook.com/v15.0/"+phon_no_id+"/messages",
@@ -25,7 +25,7 @@ async function acaonaopermitida(from, phon_no_id){
 
 }
 
-async function acaonaopermitidaNew(from, phon_no_id,wam_id){
+async function acaonaopermitidaNew(from, phon_no_id,wam_id,token){
     await axios({
         method: "POST",
         url:"https://graph.facebook.com/v15.0/"+phon_no_id+"/messages",
@@ -50,7 +50,7 @@ async function acaonaopermitidaNew(from, phon_no_id,wam_id){
 }
 
 
-async function acaoLocation(from, phon_no_id){
+async function acaoLocation(from, phon_no_id,token){
     await axios({
         method: "POST",
         url:"https://graph.facebook.com/v15.0/"+phon_no_id+"/messages",
