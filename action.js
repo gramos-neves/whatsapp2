@@ -1,8 +1,4 @@
 const axios = require("axios");
-//require('dotenv').config();
-
-
-//const token=process.env.TOKEN
 
 async function acaonaopermitida(from, phon_no_id,token){
     await axios({
