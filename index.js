@@ -3,7 +3,7 @@ const body_parser = require("body-parser");
 const axios = require("axios");
 require('dotenv').config();
 
-const {acaoAjuda, acaoLocation, acaoContato} =   require('./action')
+const {acaoAjuda, acaoLocation, acaoContato, acaonaopermitidaNew} =   require('./action')
 
 const app = express();
 
@@ -69,7 +69,7 @@ app.post("/webhook", async  (req,res) => {
                             //await acaoAjuda(from,phon_no_id,token)
                        
                         }else{
-                          await acaonaopermitidaNew(from,phon_no_id,text_id);
+                          await acaonaopermitidaNew(from,phon_no_id,text_id,token);
                         }
                         break;
                     case 'button':
@@ -88,7 +88,7 @@ app.post("/webhook", async  (req,res) => {
                         break;
                     case 'sticker':
                         let sticker_id = body_param.entry[0].changes[0].value.messages?.[0].id; 
-                       await acaonaopermitidaNew(from,phon_no_id,sticker_id)  
+                       await acaonaopermitidaNew(from,phon_no_id,sticker_id,token)  
                         //console.log('sticker')
                         break;
                     case 'image':
@@ -188,6 +188,7 @@ async function acaonaopermitida(from, phon_no_id){
 
 }
 
+/*
 async function acaonaopermitidaNew(from, phon_no_id,wam_id){
     await axios({
         method: "POST",
@@ -210,7 +211,7 @@ async function acaonaopermitidaNew(from, phon_no_id,wam_id){
         }
     })
 
-}
+}*/
 
 /*
 async function acaoLocation(from, phon_no_id){
