@@ -64,7 +64,7 @@ app.post("/webhook", async  (req,res) => {
                         
             
                         if(msg_body == '/ajuda'){
-                            await acaoAjuda(from,phon_no_id)
+                          //  await acaoAjuda(from,phon_no_id)
                             await acaoAjuda1(from,phon_no_id,token)
                             //await acaoAjuda(from,phon_no_id,token)
                        

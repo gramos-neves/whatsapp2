@@ -134,8 +134,8 @@ async function acaoContato(from, phon_no_id){
 
 
 async function acaoAjuda1(from, phon_no_id,token){
-    console.log(token)
-    /*
+    //console.log(token)
+    
     await axios({
         method: "POST",
         url:"https://graph.facebook.com/v15.0/"+phon_no_id+"/messages",
@@ -174,7 +174,7 @@ async function acaoAjuda1(from, phon_no_id,token){
             "Content-Type":"application/json",
             "Authorization":"Bearer "+token
         }
-    })*/
+    })
 
 }
 
