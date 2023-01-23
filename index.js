@@ -140,6 +140,7 @@ app.post("/webhook", async (req, res) => {
           console.log("default");
       }
 
+
       res.sendStatus(200);
     } else {
       var status = !!body_param.entry[0].changes[0].value.statuses;
@@ -169,7 +170,7 @@ app.get("/listen", (req, res) => {
 
 app.get("/status", (req, res) => {
   let statusNew = arrStatus;
- // arrStatus = [];
+  arrStatus = [];
   // console.log(statusNew)
   //res.status(200).send(JSON.stringify(statusNew));
   res.status(200).send(statusNew);
