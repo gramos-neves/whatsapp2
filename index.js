@@ -151,7 +151,8 @@ app.post("/webhook", async (req, res) => {
           body_param.entry[0].changes[0].value.statuses[0].recipient_id;
         let statu = body_param.entry[0].changes[0].value.statuses[0].status;
         //   console.log(body_param.entry[0].changes[0].value)
-        arrStatus.push(body_param.entry[0].changes[0].value);
+       // arrStatus.push(body_param.entry[0].changes[0].value);
+        arrStatus.push(body_param);
       }
 
       res.sendStatus(200);
