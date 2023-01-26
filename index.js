@@ -175,3 +175,17 @@ app.get("/status", (req, res) => {
   //res.status(200).send(JSON.stringify(statusNew));
   res.status(200).send(statusNew);
 });
+
+
+
+
+app.post("/powerautomate", (req, res) => {
+ // let statusNew = arrStatus;
+ // arrStatus = [];
+ 
+
+   console.log(req.body)
+ 
+   res.status(200).send(); 
+   //res.status(200).send(statusNew);
+});
