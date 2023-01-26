@@ -184,7 +184,7 @@ app.post("/powerautomate", (req, res) => {
  // arrStatus = [];
  
 
-   console.log(req.body)
+   console.log(req)
  
    res.status(200).send(); 
    //res.status(200).send(statusNew);
