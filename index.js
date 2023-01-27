@@ -204,7 +204,9 @@ emails.map(resp => {
 
 app.get("/powerautomate/listen", (req, res) => {
    let emails =  arrayEmails;
-   console.log(arrayEmails)
+   if(arrayEmails != []){
+     console.log(arrayEmails)
+   }
    arrayEmails = []
    res.status(200).send(JSON.stringify(emails));
  });
