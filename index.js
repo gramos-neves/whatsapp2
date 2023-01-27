@@ -191,8 +191,9 @@ var emails = email.para.split(',')
 
 emails.map(resp => {
      var teste = resp.match(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/)
-      //console.log(teste[0])
-      arrayEmails.push(teste[0])
+     let pessoa = {}
+     pessoa.email =  teste[0];   
+     arrayEmails.push(pessoa);
 })
 
  console.log(arrayEmails)
@@ -202,9 +203,9 @@ emails.map(resp => {
 
 
 app.get("/powerautomate/listen", (req, res) => {
-   let statusNew =  arrayEmails;
+   let emails =  arrayEmails;
    
    console.log(arrayEmails)
   // arrayEmails = []
-   res.status(200).send(JSON.stringify(statusNew));
+   res.status(200).send(JSON.stringify(emails));
  });
