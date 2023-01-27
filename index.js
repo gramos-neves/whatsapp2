@@ -181,9 +181,6 @@ app.get("/status", (req, res) => {
 
 
 app.post("/powerautomate", (req, res) => {
- // let statusNew = arrStatus;
- // arrStatus = [];
- 
    console.log(req.body)
 
 //var email = 'GUILHERME NEVES DA SILVA RAMOS <guilherme.ramos@hc.fm.usp.br>, diego.plima@hc.fm.usp.br, carlos.brocca@hc.fm.usp.br'
@@ -201,14 +198,13 @@ emails.map(resp => {
  console.log(arrayEmails)
 
  res.status(200).send(); 
-   //res.status(200).send(statusNew);
 });
 
 
 app.get("/powerautomate/listen", (req, res) => {
    let statusNew =  arrayEmails;
    
-     console.log(arrayEmails)
+   console.log(arrayEmails)
   // arrayEmails = []
    res.status(200).send(JSON.stringify(statusNew));
  });
