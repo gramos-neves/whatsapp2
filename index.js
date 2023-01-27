@@ -185,6 +185,20 @@ app.post("/powerautomate", (req, res) => {
  
    console.log(req.body)
 
-   res.status(200).send(); 
+//var email = 'GUILHERME NEVES DA SILVA RAMOS <guilherme.ramos@hc.fm.usp.br>, diego.plima@hc.fm.usp.br, carlos.brocca@hc.fm.usp.br'
+//var email = 'GUILHERME NEVES DA SILVA RAMOS <guilherme.ramos@hc.fm.usp.br>'
+var email = req.body;
+var emails = email.split(',')
+var arrayEmails = []
+
+emails.map(resp => {
+     var teste = resp.match(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/)
+      //console.log(teste[0])
+      arrayEmails.push(teste[0])
+})
+
+console.log(arrayEmails)
+
+ res.status(200).send(); 
    //res.status(200).send(statusNew);
 });
