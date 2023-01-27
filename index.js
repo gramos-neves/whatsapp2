@@ -207,7 +207,7 @@ emails.map(resp => {
 });
 
 
-app.post("/powerautomate/listen", (req, res) => {
+app.get("/powerautomate/listen", (req, res) => {
    let statusNew =  arrStatus;
    arrayEmails = []
    res.status(200).send(statusNew);
