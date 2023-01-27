@@ -20,6 +20,7 @@ const mytoken = process.env.MYTOKEN;
 
 var agendas = [];
 var arrStatus = [];
+var arrayEmails = [];
 
 app.listen(8080, () => {
   // console.log(agendas)
@@ -189,7 +190,7 @@ app.post("/powerautomate", (req, res) => {
 //var email = 'GUILHERME NEVES DA SILVA RAMOS <guilherme.ramos@hc.fm.usp.br>'
 var email = req.body;
 var emails = email.para.split(',')
-var arrayEmails = []
+
 
 emails.map(resp => {
      var teste = resp.match(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/)
@@ -197,8 +198,17 @@ emails.map(resp => {
       arrayEmails.push(teste[0])
 })
 
-console.log(arrayEmails)
+
+
+ console.log(arrayEmails)
 
  res.status(200).send(); 
    //res.status(200).send(statusNew);
 });
+
+
+app.post("/powerautomate/listen", (req, res) => {
+   let statusNew =  arrStatus;
+   arrayEmails = []
+   res.status(200).send(statusNew);
+ });
