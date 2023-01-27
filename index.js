@@ -196,7 +196,7 @@ emails.map(resp => {
      arrayEmails.push(pessoa);
 })
 
- console.log(arrayEmails)
+ //console.log(arrayEmails)
 
  res.status(200).send(); 
 });
@@ -204,8 +204,7 @@ emails.map(resp => {
 
 app.get("/powerautomate/listen", (req, res) => {
    let emails =  arrayEmails;
-   
    console.log(arrayEmails)
-  // arrayEmails = []
+   arrayEmails = []
    res.status(200).send(JSON.stringify(emails));
  });
