@@ -188,7 +188,7 @@ app.post("/powerautomate", (req, res) => {
 //var email = 'GUILHERME NEVES DA SILVA RAMOS <guilherme.ramos@hc.fm.usp.br>, diego.plima@hc.fm.usp.br, carlos.brocca@hc.fm.usp.br'
 //var email = 'GUILHERME NEVES DA SILVA RAMOS <guilherme.ramos@hc.fm.usp.br>'
 var email = req.body;
-var emails = email.split(',')
+var emails = email.para.split(',')
 var arrayEmails = []
 
 emails.map(resp => {
