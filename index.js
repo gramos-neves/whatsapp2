@@ -30,13 +30,13 @@ app.listen(8080, () => {
 app.get("/webhook", (req, res) => {
   let mode = req.query["hub.mode"];
   let challange = req.query["hub.challenge"];
-  let token = req.query["hub.verify_token"];
+  let mytoken = req.query["hub.verify_token"];
 
   //console.log(challange)
   //console.log(token)
   // console.log(mode)
-  if (mode && token) {
-    if (mode === "subscribe" && token === mytoken) {
+  if (mode && mytoken) {
+    if (mode === "subscribe" && mytoken === mytoken) {
       res.status(200).send(challange);
     } else {
       res.status(403).send("ok");
