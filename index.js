@@ -57,8 +57,7 @@ app.post("/webhook", async (req, res) => {
       body_param.entry[0].changes[0].value.messages &&
       body_param.entry[0].changes[0].value.messages[0]
     ) {
-      let phon_no_id =
-        body_param.entry[0].changes[0].value.metadata.phone_number_id;
+      let phon_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
       let from = body_param.entry[0].changes[0].value.messages[0].from;
 
       // console.log("from: " + from)
@@ -67,8 +66,7 @@ app.post("/webhook", async (req, res) => {
 
       switch (expr) {
         case "text":
-          let msg_body =
-            req.body.entry[0].changes[0].value.messages?.[0].text.body;
+          let msg_body = req.body.entry[0].changes[0].value.messages?.[0].text.body;
           let text_id = body_param.entry[0].changes[0].value.messages?.[0].id;
 
           if (msg_body == "/ajuda") {
@@ -80,10 +78,8 @@ app.post("/webhook", async (req, res) => {
           }
           break;
         case "button":
-          let button =
-            body_param.entry[0].changes[0].value.messages?.[0].button;
-          let wamid =
-            body_param.entry[0].changes[0].value.messages?.[0].context;
+          let button = body_param.entry[0].changes[0].value.messages?.[0].button;
+          let wamid = body_param.entry[0].changes[0].value.messages?.[0].context;
 
           //console.log(wamid)
           agenda.button = button.text;
@@ -96,8 +92,7 @@ app.post("/webhook", async (req, res) => {
           //console.log('button')
           break;
         case "sticker":
-          let sticker_id =
-            body_param.entry[0].changes[0].value.messages?.[0].id;
+          let sticker_id = body_param.entry[0].changes[0].value.messages?.[0].id;
           await acaonaopermitidaNew(from, phon_no_id, sticker_id, token);
           //console.log('sticker')
           break;
@@ -122,13 +117,10 @@ app.post("/webhook", async (req, res) => {
           //console.log('location')
           break;
         case "interactive":
-          let button_reply =
-            body_param.entry[0].changes[0].value.messages?.[0].interactive.type;
+          let button_reply = body_param.entry[0].changes[0].value.messages?.[0].interactive.type;
 
           if (button_reply == "button_reply") {
-            let button_reply_id =
-              body_param.entry[0].changes[0].value.messages?.[0].interactive
-                .button_reply.id;
+            let button_reply_id = body_param.entry[0].changes[0].value.messages?.[0].interactive.button_reply.id;
             if (button_reply_id == "Contato") {
               await acaoContato(from, phon_no_id, token);
             } else if (button_reply_id == "Location_icesp") {
@@ -147,10 +139,8 @@ app.post("/webhook", async (req, res) => {
       var status = !!body_param.entry[0].changes[0].value.statuses;
 
       if (status === true) {
-        let phon_no_id =
-          body_param.entry[0].changes[0].value.metadata.phone_number_id;
-        let from =
-          body_param.entry[0].changes[0].value.statuses[0].recipient_id;
+        let phon_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
+        let from = body_param.entry[0].changes[0].value.statuses[0].recipient_id;
         let statu = body_param.entry[0].changes[0].value.statuses[0].status;
         //   console.log(body_param.entry[0].changes[0].value)
        // arrStatus.push(body_param.entry[0].changes[0].value);
